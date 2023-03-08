@@ -1,0 +1,11 @@
+{
+  "name": "weatherproject",
+  "version": "1.0.0",
+  "description": "Here i Learn the usage of api Keys.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sunil K",
+  "license": "ISC"
+}
