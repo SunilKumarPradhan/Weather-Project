@@ -7,15 +7,31 @@ const app = express();
 app.get("/", (req, res)=>{
 
   const url= "https://api.openweathermap.org/data/2.5/weather?q=Bhubaneshwar&appid=e02502865e18d2e98d6fb89b70a6de7c&units=metricapi.openweathermap.org/data/2.5/weather?q=Ranchi&appid=e02502865e18d2e98d6fb89b70a6de7c&units=metric"
+  
+  
   https.get(url , (res2)=>{ 
-  console.log(res2);
+  //console.log(res2);
+
   console.log("Your Status Message : "+res2.statusMessage);
+  
+  
   res2.on("data",(data)=>{
     console.log(data);
-  });
+    const weatherData = JSON.parse(data);
+    console.log(weatherData);
+
+    console.log("The temperature in "+weatherData.name+" is "+weatherData.main.temp);
+    console.log("The weather is "+weatherData.weather[0].description);
+    console.log("The humidity is "+weatherData.main.humidity);
+    console.log("The wind speed is "+weatherData.wind.speed);
+    console.log("The pressure is "+weatherData.main.pressure);
+    
+    res.send("The temperature in "+weatherData.name+" is "+weatherData.main.temp+" The weather is "+weatherData.weather[0].description+" The humidity is "+weatherData.main.humidity+" The wind speed is "+weatherData.wind.speed+" The pressure is "+weatherData.main.pressure+" The pressure is "+weatherData.main.pressure+" The pressure is "+weatherData.main.pressure);
   });
 
-  res.send('Server is up and running');
+  });
+
+ 
 });
 // after writing the code we need to run the server. 
 //1. go to Hyper terminal 
