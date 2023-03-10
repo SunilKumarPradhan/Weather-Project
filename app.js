@@ -10,14 +10,18 @@ app.get("/", (req, res)=>{
   https.get(url , (res2)=>{ 
   console.log(res2);
   console.log("Your Status Message : "+res2.statusMessage);
-  response.on("data",(data)=>{
+  res2.on("data",(data)=>{
     console.log(data);
   });
   });
 
   res.send('Server is up and running');
 });
-// after writing the code we need to run the server. 1. go to Hyper terminal 2. type node app.js 3. press enter 4. go to browser and type localhost:3000
+// after writing the code we need to run the server. 
+//1. go to Hyper terminal 
+//2. type node app.js 
+//3. press enter 
+//4. go to browser and type localhost:3000
 app.listen(3000, ()=>{
   console.log('Server is running on port 3000');
 });
