@@ -25,8 +25,9 @@ app.get("/", (req, res)=>{
     console.log("The humidity is "+weatherData.main.humidity);
     console.log("The wind speed is "+weatherData.wind.speed);
     console.log("The pressure is "+weatherData.main.pressure);
-    
-    res.send("The temperature in "+weatherData.name+" is "+weatherData.main.temp+" The weather is "+weatherData.weather[0].description+" The humidity is "+weatherData.main.humidity+" The wind speed is "+weatherData.wind.speed+" The pressure is "+weatherData.main.pressure+" The pressure is "+weatherData.main.pressure+" The pressure is "+weatherData.main.pressure);
+    res.write("<table><th>The Weather Statistics for "+weatherData.name+" are as follows :- </th><tr><td>The weather is <b>"+weatherData.weather[0].description+"</b></td><td>The humidity is <b>"+weatherData.main.humidity+"</b></td></tr>  <tr><td>The wind speed is <b>"+weatherData.wind.speed+"</b></td><td>The pressure is <b>"+weatherData.main.pressure+"</b></td></tr></table>");
+    res.send();
+    //res.send("The temperature in "+weatherData.name+" is "+weatherData.main.temp+" The weather is "+weatherData.weather[0].description+" The humidity is "+weatherData.main.humidity+" The wind speed is "+weatherData.wind.speed+" The pressure is "+weatherData.main.pressure+" The pressure is "+weatherData.main.pressure+");
   });
 
   });
