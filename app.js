@@ -13,7 +13,7 @@ app.get("/", (req, res)=>{
   //console.log(res2);
 
   console.log("Your Status Message : "+res2.statusMessage);
-  
+  //This is a test message
   
   res2.on("data",(data)=>{
     console.log(data);
@@ -33,7 +33,6 @@ app.get("/", (req, res)=>{
   });
 
  });
-
  
 });
 // after writing the code we need to run the server. 
