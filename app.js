@@ -1,14 +1,24 @@
 const { response } = require('express');
 const express = require('express');
 const https = require('https');
-
+const bodyParser = require('body-parser');
 const app = express();
 
-app.get("/", (req, res)=>{
+app.use(bodyParser.urlencoded({extended:true}));
 
-  const url= "https://api.openweathermap.org/data/2.5/weather?q=Brahmapur&appid=e02502865e18d2e98d6fb89b70a6de7c&units=metricapi.openweathermap.org/data/2.5/weather?q=Ranchi&appid=e02502865e18d2e98d6fb89b70a6de7c&units=metric"
-  
-  
+app.get("/", (req, res)=>{
+  res.sendFile(__dirname+"/index.html"); 
+});
+ 
+app.post("/", function(req,res){
+ 
+console.log(req.body. cityName); 
+//-------------------------------
+var query = req.body.cityName;
+var apiKey = "1916afd2fb206dae922803575e0a1735";
+var unit = "metric";
+
+const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + unit;
   https.get(url , (res2)=>{ 
   //console.log(res2);
 
@@ -33,8 +43,9 @@ app.get("/", (req, res)=>{
   });
 
  });
- 
 });
+
+
 // after writing the code we need to run the server. 
 //1. go to Hyper terminal 
 //2. type node app.js 
